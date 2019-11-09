@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, Switch } from "react-router";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 const Router = () => {
 	return <div></div>;
