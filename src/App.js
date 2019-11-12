@@ -6,41 +6,30 @@ import Form from "./components/Form";
 const API_KEY = "43297c46c87149f3a14cc5e5c316ea83";
 
 function App() {
-	// useEffect(() => {
-	// 	const fetchData = async e => {
-	// 		const response = await fetch(
-	// 			`https://www.food2fork.com/api/search?key=${API_KEY}&q=shredded%20chicken`
-	// 		);
-	// 		const data = await response.json();
+    const [recipe, setRecipe] = useState([]);
 
-	// 		console.log(data.recipes);
-	// 	};
+    const getRecipe = async e => {
+        // prevent default
+        e.preventDefault();
 
-	// 	fetchData();
-	// }, []);
+        // get input
+        const name = e.target.elements.recipeName.value;
 
-	const fetchData = async e => {
-		// Prevent default
-		e.preventDefault();
+        const response = await fetch(
+            `https://www.food2fork.com/api/search?key=${API_KEY}&q=${name}&count=5  `
+        );
+        const data = await response.json();
 
-		// Get input value
-		const name = e.target.value;
+        setRecipe(() => data.recipes);
+        console.log(recipe);
+    };
 
-		// const response = await fetch(
-		// 	`https://www.food2fork.com/api/search?key=${API_KEY}&q=${name}&count=10`
-		// );
-		// const data = await response.json();
-
-		// console.log(data.recipes);
-		console.log(name);
-	};
-
-	return (
-		<>
-			<Navbar />
-			<Form getRecipe={fetchData} />
-		</>
-	);
+    return (
+        <>
+            <Navbar />
+            <Form handleSubmit={getRecipe} />
+        </>
+    );
 }
 
 export default App;
