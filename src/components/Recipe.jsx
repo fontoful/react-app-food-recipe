@@ -5,12 +5,9 @@ const API_KEY = "43297c46c87149f3a14cc5e5c316ea83";
 const Recipe = props => {
 	const [activeRecipe, setActiveRecipe] = useState([]);
 
-	// Logging it to the console
-	console.log(props);
-
 	// Use effect to consume the API
 	useEffect(() => {
-		const fetch = async () => {
+		const fetchRecipes = async () => {
 			// get input
 			const title = props.location.state.recipe;
 
@@ -22,10 +19,17 @@ const Recipe = props => {
 			setActiveRecipe(data.recipes[0]);
 		};
 
-		fetch();
+		fetchRecipes();
 	}, []);
 
-	return <div>This is the recipe</div>;
+	const recipe = activeRecipe;
+
+	return (
+		<div className="container">
+			<img src={recipe.image_url} alt={recipe.title} />
+			<h1>{recipe.title}</h1>
+		</div>
+	);
 };
 
 export default Recipe;
