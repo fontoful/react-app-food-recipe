@@ -1,0 +1,31 @@
+.cards {
+	margin-bottom: 2rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+
+	.card {
+		box-shadow: 19px 16px 37px -5px rgba(0, 0, 0, 0.75);
+
+		p {
+			margin-bottom: 15px;
+		}
+
+		&:hover {
+			transform: translateY(-10px);
+		}
+	}
+
+	button {
+		background: coral;
+		color: #fff;
+		text-align: center;
+		padding: 15px 10px;
+		border: none;
+		margin-bottom: 5px;
+		margin-left: 5px;
+		width: 40%;
+		margin: auto;
+		cursor: pointer;
+	}
+}
