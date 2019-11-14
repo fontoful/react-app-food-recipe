@@ -23,16 +23,14 @@ function App() {
 		const recipes = data.recipes;
 
 		// Setter
-		setRecipe(() => recipes);
+		setRecipe(recipes);
 	};
 
 	return (
 		<>
 			<Navbar />
-			<div className="container">
-				<Form handleSubmit={getRecipe} />
-				<Recipes recipes={recipe} />
-			</div>
+			<Form handleSubmit={getRecipe} />
+			<Recipes recipes={recipe} />
 		</>
 	);
 }
