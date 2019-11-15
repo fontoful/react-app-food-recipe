@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
-import Navbar from "./styles/Navbar";
+import Navbar from "./styles/navbar/Navbar";
 import Form from "./components/Form";
 import Recipes from "./components/Recipes";
 
@@ -17,7 +17,7 @@ function App() {
 		const name = e.target.elements.recipeName.value;
 
 		const response = await fetch(
-			`https://www.food2fork.com/api/search?key=${API_KEY}&q=${name}&count=10  `
+			`https://www.food2fork.com/api/search?key=${API_KEY}&q=${name}&count=15`
 		);
 		const data = await response.json();
 		const recipes = data.recipes;
